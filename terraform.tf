@@ -1,12 +1,12 @@
 terraform {
 
-  cloud {
-    organization = "ms_vcs_demo_org"
+  # cloud {
+  #   organization = "ms_vcs_demo_org"
 
-    workspaces {
-      name = "terraform-vcs-integration-demo"
-    }
-  }
+  #   workspaces {
+  #     name = "terraform-vcs-integration-demo"
+  #   }
+  # }
 
   required_providers {
     aws = {
