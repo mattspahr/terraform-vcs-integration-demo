@@ -1,4 +1,13 @@
 terraform {
+
+  # cloud {
+  #   organization = "ms_vcs_demo_org"
+
+  #   workspaces {
+  #     name = "terraform-vcs-integration-demo"
+  #   }
+  # }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
