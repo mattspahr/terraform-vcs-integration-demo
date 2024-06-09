@@ -7,14 +7,14 @@ resource "aws_security_group" "web_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.public_cidr]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.public_cidr]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
@@ -25,7 +25,7 @@ data "aws_ami" "selected_ami" {
   # Filter the AMI by its ID
   filter {
     name   = "image-id"
-    values = [var.ami]
+    values = [var.ami_id]
   }
 }
 
@@ -37,7 +37,7 @@ resource "aws_instance" "web-server" {
   security_groups = [aws_security_group.web_sg.name]
 
   tags = {
-    Name = var.instance_name
+    Name = "web-server"
   }
 
   user_data = file("${path.module}/scripts/user_data.sh")
