@@ -37,7 +37,7 @@ resource "aws_instance" "web-server" {
   security_groups = [aws_security_group.web_sg.name]
 
   tags = {
-    Name = "web-server"
+    Name = "web-server2"
   }
 
   user_data = file("${path.module}/scripts/user_data.sh")
